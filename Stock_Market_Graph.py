@@ -21,8 +21,8 @@ END_DATE = str(datetime.now().strftime('%Y-%m-%d'))
 #4) basic stats about the stock
 
 
-
-def get_data(ticker):        #function 1
+#function 1: collect data
+def get_data(ticker):
 	try:
 		stock_data = data.DataReader(ticker,
 						'yahoo',
@@ -35,3 +35,17 @@ def get_data(ticker):        #function 1
 		print("No data available for {t}".format(t = ticker))
 
 #-------------------------------------------------#
+
+#function 2: cleaning data
+#collect weekday data and ignores weekend data
+def clean_data(stock_data, col):
+	weekdays = pd.date_range(start = START_DATE , end = END_DATE)
+	clean_data = stock_data[col].reindex(weekdays)
+	return clean_data.fillna(method = 'ffill')        
+    
+    #ffill is used to fill missing value with the next/foward data
+
+
+#-------------------------------------------------#
+
+
