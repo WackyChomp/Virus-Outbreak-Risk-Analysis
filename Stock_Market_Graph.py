@@ -17,8 +17,8 @@ END_DATE = str(datetime.now().strftime('%Y-%m-%d'))
 #four functions 
 #1) gets data
 #2) cleans data
-#3) creates plot/ graph
-#4) basic stats about the stock
+#3) basic stats about the stock
+#4) creates plot/ graph
 
 
 #function 1: collect data
@@ -48,4 +48,15 @@ def clean_data(stock_data, col):
 
 #-------------------------------------------------#
 
+#function 3: collect basic statistics
+#stats are used for the graph visual
+def get_stats(stock_data):
+	return {
+		'last': np.mean(stock_data.tail(1)),
+		'short_mean': np.mean(stock_data.tail(30)),           #last 30 days
+		'long_mean': np.mean(stock_data.tail(200)),         #last 200 days
+		'short_rolling': stock_data.rolling(window = 30).mean(),
+		'long_rolling': stock_data.rolling(window = 200).mean(),
+	}
 
+#-------------------------------------------------#
