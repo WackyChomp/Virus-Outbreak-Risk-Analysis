@@ -45,7 +45,6 @@ def clean_data(stock_data, col):
     
     #ffill is used to fill missing value with the next/foward data
 
-
 #-------------------------------------------------#
 
 #function 3: collect basic statistics
@@ -60,3 +59,20 @@ def get_stats(stock_data):
 	}
 
 #-------------------------------------------------#
+
+#function 4: creating the graph visual
+def create_plot(stock_data, ticker):
+	stats = get_stats(stock_data)
+	plt.style.use('dark_background')        #change color of background
+	plt.subplots(figsize = (12,8)),
+	plt.plot(stock_data, label = ticker)
+	plt.plot(stats['short_rolling'], label = '30 day rolling mean')
+	plt.plot(stats['long_rolling'], label = '200 day rolling mean')
+	plt.xlabel('Date')
+	plt.ylabel('Adj Close (p)')             #keeps price constant 
+	plt.legend()      #box shows what the lines represent (similar to a map)
+	plt.title('Stock Prices over Time')
+	plt.show()
+
+USA_STOCK = 'AMZN'
+get_data(USA_STOCK)
