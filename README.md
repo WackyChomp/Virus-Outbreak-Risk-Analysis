@@ -4,8 +4,13 @@
 
 ## This program works primarily with Python 2
 
-## Work on this project around March and June
+## Work on this project around March and June in the year 2020
 
-## Modules: Matplotlib, Numpy, Pandas
+## Stock Market Modules: 
+```
+Matplotlib, Numpy, Pandas
+```
 
-## Reflection: I am surpised to see how far I've come in terms of knowledge :D (3/9/2021)
+```
+Reflection: I am surpised to see how far I've come in terms of knowledge :D (3/9/2021)
+```
